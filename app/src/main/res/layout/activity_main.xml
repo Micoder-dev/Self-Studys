@@ -40,7 +40,7 @@
         app:defaultNavHost="true"
         android:layout_alignParentTop="true"
         android:layout_above="@id/bottomBar"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="?attr/actionBarSize"
         app:navGraph='@navigation/nav_graph' />
 
     <me.ibrahimsn.lib.SmoothBottomBar
