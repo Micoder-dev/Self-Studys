@@ -74,6 +74,18 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         setupSmoothBottomMenu()
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.updatesFragment) {
+                mToolBar!!.navigationIcon = null
+            }
+            if (destination.id == R.id.notificationFragment) {
+                mToolBar!!.navigationIcon = null
+            }
+            if (destination.id == R.id.profileFragment) {
+                mToolBar!!.navigationIcon = null
+            }
+        }
+
 
         // Floating Navigation View
         mFloatingNavigationView = findViewById<View>(R.id.floating_navigation_view) as FloatingNavigationView

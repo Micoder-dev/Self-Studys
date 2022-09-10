@@ -7,30 +7,10 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.MainActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <include
             android:id="@+id/main_page_toolbar"
             layout="@layout/app_bar_layout">
         </include>
-
-        <com.andremion.floatingnavigationview.FloatingNavigationView
-            android:id="@+id/floating_navigation_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            app:drawMenuBelowFab="false"
-            app:headerLayout="@layout/navigation_view_header"
-            app:layout_anchor="@id/main_page_toolbar"
-            app:layout_anchorGravity="bottom|left"
-            app:menu="@menu/navigation_view"
-            android:backgroundTint="@color/liteBlue"
-            android:tint="@color/white"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <fragment
         android:id="@+id/main_fragment"
@@ -40,7 +20,7 @@
         app:defaultNavHost="true"
         android:layout_alignParentTop="true"
         android:layout_above="@id/bottomBar"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginTop="70dp"
         app:navGraph='@navigation/nav_graph' />
 
     <me.ibrahimsn.lib.SmoothBottomBar
