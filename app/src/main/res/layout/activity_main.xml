@@ -6,33 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/main_page_toolbar"
+        layout="@layout/app_bar_layout">
+    </include>
+
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:id="@+id/main_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:navGraph='@navigation/nav_graph'
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/main_page_toolbar"
+        app:navGraph='@navigation/nav_graph' />
 
     <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:id="@+id/bottomBar"
         app:backgroundColor="#2547FF"
-        app:textColor="#FFFFFF"
-        app:textSize="12sp"
+        app:cornerRadius="16dp"
         app:iconSize="26sp"
-        app:indicatorRadius="16dp"
-        app:sideMargins="10dp"
-        app:itemPadding="10dp"
         app:iconTint="#CBD6D6D6"
         app:iconTintActive="#FFFFFF"
-        app:cornerRadius="16dp"
+        app:indicatorRadius="16dp"
+        app:itemPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:sideMargins="10dp"
+        app:textColor="#FFFFFF"
+        app:textSize="12sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
