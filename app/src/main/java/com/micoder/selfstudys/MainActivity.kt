@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(mToolBar)
 
         val radius =
-            resources.getDimension(com.shashank.sony.fancywalkthroughlib.R.dimen.activity_half_margin)
+            resources.getDimension(R.dimen.activity_half_margin)
         val toolbarBackground = mToolBar!!.getBackground() as MaterialShapeDrawable
         toolbarBackground.shapeAppearanceModel = toolbarBackground.shapeAppearanceModel
             .toBuilder()
