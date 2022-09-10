@@ -1,5 +1,6 @@
 package com.micoder.selfstudys.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.text.SpannableString
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.CompoundButton
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
@@ -22,6 +24,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.micoder.selfstudys.R
 import com.micoder.selfstudys.databinding.ActivityMainBinding
 
@@ -79,6 +82,18 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(mFloatingNavigationView.parent as View, item.title.toString() + " Selected!", Snackbar.LENGTH_SHORT).show()
             mFloatingNavigationView.close()
             true
+        }
+        // navigationView nightmode switch control
+        val menuItem = mFloatingNavigationView.menu.findItem(R.id.nightModeFab) // first insialize MenuItem
+
+        @SuppressLint("UseSwitchCompatOrMaterialCode") val switchButton =
+            menuItem.actionView.findViewById<View>(R.id.drawer_switch) as SwitchMaterial
+        switchButton.setOnCheckedChangeListener { compoundButton: CompoundButton?, b: Boolean ->
+            if (b) {
+                Toast.makeText(this, "True", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "False", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
