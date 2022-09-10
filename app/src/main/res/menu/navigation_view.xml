@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profileFab"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile"/>
+        <item
+            android:id="@+id/changeExamFab"
+            android:icon="@drawable/ic_change_exam"
+            android:title="Change Exam"/>
+        <item
+            android:id="@+id/nightModeFab"
+            android:icon="@drawable/ic_night_mode"
+            android:title="Night Mode"/>
+        <item
+            android:id="@+id/leaderBoardFab"
+            android:icon="@drawable/ic_leader_board"
+            android:title="LeaderBoard"/>
+        <item
+            android:id="@+id/queBookmarkedFab"
+            android:icon="@drawable/ic_que_bookmarked"
+            android:title="Que Bookmarked"/>
+        <item
+            android:id="@+id/downloadedBookFab"
+            android:icon="@drawable/ic_downloaded_books"
+            android:title="Downloaded Books"/>
+        <item
+            android:id="@+id/pdfBookmarkedFab"
+            android:icon="@drawable/ic_pdf_bookmarked"
+            android:title="PDF Bookmarked"/>
+        <item
+            android:id="@+id/articleBookmarkedFab"
+            android:icon="@drawable/ic_article_bookmarked"
+            android:title="Article Bookmarked"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/moreAppFab"
+                android:icon="@drawable/ic_more_apps"
+                android:title="More Apps"/>
+            <item
+                android:id="@+id/appShareFab"
+                android:icon="@drawable/ic_share_app"
+                android:title="Share App"/>
+            <item
+                android:id="@+id/rateUsFab"
+                android:icon="@drawable/ic_rate_us"
+                android:title="Rate Us"/>
+            <item
+                android:id="@+id/privacyPolicyFab"
+                android:icon="@drawable/ic_privacy_policy"
+                android:title="Privacy Policy"/>
+        </menu>
+    </item>
+
+</menu>

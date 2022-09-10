@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/main_page_toolbar"
-        layout="@layout/app_bar_layout">
-    </include>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/main_page_toolbar"
+            layout="@layout/app_bar_layout">
+        </include>
+
+        <com.andremion.floatingnavigationview.FloatingNavigationView
+            android:id="@+id/floating_navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:drawMenuBelowFab="false"
+            app:headerLayout="@layout/navigation_view_header"
+            app:layout_anchor="@id/main_page_toolbar"
+            app:layout_anchorGravity="bottom|left"
+            app:menu="@menu/navigation_view"
+            android:backgroundTint="@color/liteBlue"
+            android:tint="@color/white"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <fragment
         android:id="@+id/main_fragment"
@@ -17,27 +38,28 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_page_toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/bottomBar"
+        android:layout_marginTop="80dp"
         app:navGraph='@navigation/nav_graph' />
 
     <me.ibrahimsn.lib.SmoothBottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:backgroundColor="#2547FF"
+        android:layout_height="60dp"
+        android:background="@color/white"
         app:cornerRadius="16dp"
         app:iconSize="26sp"
-        app:iconTint="#CBD6D6D6"
+        app:iconTint="#CB404040"
         app:iconTintActive="#FFFFFF"
         app:indicatorRadius="16dp"
+        app:indicatorColor="#994965FF"
         app:itemPadding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_menu"
         app:sideMargins="10dp"
         app:textColor="#FFFFFF"
-        app:textSize="12sp" />
+        app:textSize="12sp"
+        android:elevation="12dp"
+        android:layout_alignParentBottom="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
