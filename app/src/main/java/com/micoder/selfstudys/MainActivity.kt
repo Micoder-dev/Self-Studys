@@ -1,10 +1,15 @@
 package com.micoder.selfstudys
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -44,9 +49,14 @@ class MainActivity : AppCompatActivity() {
         val actionBar: ActionBar? = supportActionBar
         actionBar?.setDisplayShowCustomEnabled(true)
 
-        val layoutInflater =
-            this.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val layoutInflater = this.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val actionBarView: View = layoutInflater.inflate(R.layout.app_bar_item, null)
+        val text = actionBarView.findViewById<TextView>(R.id.actionBarTitle)
+
+        val spannableString = SpannableString("SelfStudy")
+        spannableString.setSpan(ForegroundColorSpan(Color.GREEN), 0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(ForegroundColorSpan(Color.WHITE), 4, 9, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        text.setText(spannableString)
         actionBar?.setCustomView(actionBarView)
 
 
