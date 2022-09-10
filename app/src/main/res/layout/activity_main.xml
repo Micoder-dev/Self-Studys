@@ -7,59 +7,58 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.MainActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include
-            android:id="@+id/main_page_toolbar"
-            layout="@layout/app_bar_layout">
-        </include>
-
-        <com.andremion.floatingnavigationview.FloatingNavigationView
-            android:id="@+id/floating_navigation_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            app:drawMenuBelowFab="false"
-            app:headerLayout="@layout/navigation_view_header"
-            app:layout_anchor="@id/main_page_toolbar"
-            app:layout_anchorGravity="bottom|left"
-            app:menu="@menu/navigation_view"
-            android:backgroundTint="@color/liteBlue"
-            android:tint="@color/white"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <fragment
-        android:id="@+id/main_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        android:layout_alignParentTop="true"
-        android:layout_above="@id/bottomBar"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:navGraph='@navigation/nav_graph' />
+    <include
+        android:id="@+id/main_page_toolbar"
+        layout="@layout/app_bar_layout">
+    </include>
 
     <me.ibrahimsn.lib.SmoothBottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
         android:background="@color/white"
+        android:elevation="12dp"
         app:cornerRadius="16dp"
         app:iconSize="26sp"
         app:iconTint="#CB404040"
         app:iconTintActive="#FFFFFF"
-        app:indicatorRadius="16dp"
         app:indicatorColor="#994965FF"
+        app:indicatorRadius="16dp"
         app:itemPadding="10dp"
         app:menu="@menu/bottom_nav_menu"
         app:sideMargins="10dp"
         app:textColor="#FFFFFF"
-        app:textSize="12sp"
-        android:elevation="12dp"
-        android:layout_alignParentBottom="true"/>
+        app:textSize="12sp" />
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/main_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@id/bottomBar"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:defaultNavHost="true"
+            app:navGraph='@navigation/nav_graph' />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/round_corners"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/navigation_view_header"
+            app:menu="@menu/navigation_view"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </RelativeLayout>
