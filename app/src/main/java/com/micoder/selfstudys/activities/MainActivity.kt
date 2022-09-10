@@ -1,7 +1,6 @@
-package com.micoder.selfstudys
+package com.micoder.selfstudys.activities
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -20,6 +19,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.snackbar.Snackbar
+import com.micoder.selfstudys.R
 import com.micoder.selfstudys.databinding.ActivityMainBinding
 
 
