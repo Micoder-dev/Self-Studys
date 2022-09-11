@@ -27,7 +27,7 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/white"
+        app:backgroundColor="?android:colorAccent"
         app:cornerRadius="16dp"
         app:iconSize="26sp"
         app:iconTint="#CB404040"
@@ -39,7 +39,6 @@
         app:sideMargins="10dp"
         app:textColor="#FFFFFF"
         app:textSize="12sp"
-        android:elevation="12dp"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

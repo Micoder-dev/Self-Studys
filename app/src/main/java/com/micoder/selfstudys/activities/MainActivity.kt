@@ -1,6 +1,5 @@
 package com.micoder.selfstudys.activities
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -11,10 +10,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
-import android.widget.PopupMenu
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -101,7 +97,15 @@ class MainActivity : AppCompatActivity() {
         mFloatingNavigationView = findViewById<View>(R.id.floating_navigation_view) as FloatingNavigationView
         mFloatingNavigationView.setOnClickListener { mFloatingNavigationView.open() }
         mFloatingNavigationView.setNavigationItemSelectedListener { item ->
-            Snackbar.make(mFloatingNavigationView.parent as View, item.title.toString() + " Selected!", Snackbar.LENGTH_SHORT).show()
+
+            // Custom SnackBar
+            val snackbar = Snackbar.make((mFloatingNavigationView.parent as View), item.title.toString() + " Selected!", Snackbar.LENGTH_SHORT)
+            val snackbarLayout = snackbar.view
+            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            lp.setMargins(10, 10, 0, 0)
+            snackbarLayout.layoutParams = lp
+            snackbar.show()
+
             mFloatingNavigationView.close()
             true
         }
@@ -115,12 +119,12 @@ class MainActivity : AppCompatActivity() {
 
         switchMaterial.setOnCheckedChangeListener { compoundButton: CompoundButton?, isChecked: Boolean ->
             if (isChecked) {
-                Toast.makeText(this, "True", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Dark Mode Enabled", Toast.LENGTH_SHORT).show()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 saveNightModeState(true)
                 recreate()
             } else {
-                Toast.makeText(this, "False", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Dark Mode Disabled", Toast.LENGTH_SHORT).show()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 saveNightModeState(false)
                 recreate()

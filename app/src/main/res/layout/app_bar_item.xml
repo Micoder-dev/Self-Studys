@@ -23,13 +23,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="2dp"
-            android:backgroundTint="@color/liteBlue"
-            android:theme="@style/AppTheme.AppBarOverlay"
-            android:tint="@color/white"
+            android:backgroundTint="?android:colorPrimary"
+            android:tint="?android:textColorPrimary"
             app:drawMenuBelowFab="false"
             app:headerLayout="@layout/navigation_view_header"
             app:layout_anchorGravity="left"
-            app:menu="@menu/navigation_view" />
+            app:menu="@menu/navigation_view"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

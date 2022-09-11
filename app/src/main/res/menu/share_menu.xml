@@ -6,6 +6,7 @@
         android:id="@+id/shareMenuItem"
         android:icon="@drawable/ic_share_app"
         android:title=""
-        app:showAsAction="always">
+        app:showAsAction="always"
+        app:iconTint="?android:textColorPrimary">
     </item>
 </menu>

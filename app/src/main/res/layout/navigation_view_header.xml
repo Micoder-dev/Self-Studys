@@ -8,15 +8,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:background="@color/liteBlue">
 
     <ImageView
         android:layout_marginTop="10dp"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@mipmap/ic_launcher"
         android:id="@+id/profileFabIv"
-        android:layout_alignParentEnd="true"/>
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/profileFabName"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="MI_Coder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
         android:layout_below="@+id/profileFabIv"
         android:layout_centerHorizontal="true"/>
 
@@ -33,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="micoder.com@gmail.com"
+        android:textColor="@android:color/darker_gray"
         android:layout_below="@+id/profileFabName"
         android:layout_centerHorizontal="true"/>
 

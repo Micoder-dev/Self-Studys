@@ -10,4 +10,6 @@
 
     <color name="liteBlue">#5B74FF</color>
     <color name="liteGreen">#3EBA84</color>
+    <color name="blueBlack">#040720</color>
+    <color name="liteBg">#FFFAFA</color>
 </resources>
