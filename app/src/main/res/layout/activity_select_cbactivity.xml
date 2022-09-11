@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.SelectCBActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/selectBoardRl">
+
+        <ImageView
+            android:id="@+id/selectBoardIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_select_board" />
+
+        <TextView
+            android:id="@+id/selectBoardTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Your Board"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@+id/selectBoardIv"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/selectBoardSubTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can select only one board"
+            android:layout_toEndOf="@+id/selectBoardIv"
+            android:layout_below="@+id/selectBoardTv"
+            android:layout_marginStart="10dp"/>
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tags2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:flexWrap="wrap"
+            app:justifyContent="space_between"
+            app:toggle_requiredAmount="1"
+            app:toggle_selectableAmount="1"
+            android:layout_below="@+id/selectBoardSubTv"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/selectBoardIv">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/cbse"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="CBSE" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/assamese"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="Assamese"
+                app:layout_flexGrow="1"/>
+
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/selectBoardRl">
+
+        <ImageView
+            android:id="@+id/selectClassIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_select_class"/>
+
+        <TextView
+            android:id="@+id/selectClassTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Classes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@+id/selectClassIv"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/selectClassSubTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can select only one class at a time"
+            android:layout_toEndOf="@+id/selectClassIv"
+            android:layout_below="@+id/selectClassTv"
+            android:layout_marginStart="10dp"/>
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/tags"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            app:flexWrap="wrap"
+            app:toggle_requiredAmount="1"
+            app:toggle_selectableAmount="2"
+            android:layout_below="@+id/selectClassSubTv"
+            android:layout_toEndOf="@+id/selectClassIv"
+            android:layout_marginTop="15dp">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/twelve"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="12" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/eleven"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="11" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/ten"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="10" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/nine"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="9" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/eight"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="8" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/seven"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="7" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/six"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="6" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/five"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="5" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/four"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="4" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/three"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="3" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/two"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="2" />
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:id="@+id/one"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                app:toggle_text="1" />
+
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+    </RelativeLayout>
+
+</RelativeLayout>

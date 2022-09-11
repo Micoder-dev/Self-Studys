@@ -1,6 +1,7 @@
 package com.micoder.selfstudys.activities
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
@@ -98,13 +99,11 @@ class MainActivity : AppCompatActivity() {
         mFloatingNavigationView.setOnClickListener { mFloatingNavigationView.open() }
         mFloatingNavigationView.setNavigationItemSelectedListener { item ->
 
-            // Custom SnackBar
-            val snackbar = Snackbar.make((mFloatingNavigationView.parent as View), item.title.toString() + " Selected!", Snackbar.LENGTH_SHORT)
-            val snackbarLayout = snackbar.view
-            val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            lp.setMargins(10, 10, 0, 0)
-            snackbarLayout.layoutParams = lp
-            snackbar.show()
+            when (item.itemId){
+                R.id.changeExamFab -> {
+                    startActivity(Intent(this, SelectCBActivity::class.java))
+                }
+            }
 
             mFloatingNavigationView.close()
             true
@@ -113,11 +112,11 @@ class MainActivity : AppCompatActivity() {
         // navigationView nightmode switch control
         val menuItem = mFloatingNavigationView.menu.findItem(R.id.nightModeFab) // first insialize MenuItem
 
-        switchMaterial = menuItem.actionView.findViewById<View>(R.id.drawer_switch) as SwitchMaterial
+        switchMaterial = menuItem.actionView?.findViewById<View>(R.id.drawer_switch) as SwitchMaterial
 
         checkNightModeActivated()
 
-        switchMaterial.setOnCheckedChangeListener { compoundButton: CompoundButton?, isChecked: Boolean ->
+        switchMaterial.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             if (isChecked) {
                 Toast.makeText(this, "Dark Mode Enabled", Toast.LENGTH_SHORT).show()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -176,7 +175,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
-            R.id.shareMenuItem -> Toast.makeText(this,"Share Selected",Toast.LENGTH_SHORT).show()
+            R.id.shareMenuItem -> {
+                Toast.makeText(this,"Share Selected",Toast.LENGTH_SHORT).show()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
