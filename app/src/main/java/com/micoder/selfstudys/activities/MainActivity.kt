@@ -2,6 +2,7 @@ package com.micoder.selfstudys.activities
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -16,6 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -38,12 +40,20 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mFloatingNavigationView: FloatingNavigationView
 
+    private lateinit var switchMaterial: SwitchMaterial
+    private val MyPREFERENCES: String = "nightModePrefs"
+    private val KEY_ISNIGHTMODE: String = "isNightMode"
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater) // view binding implementation
         setContentView(binding.root)
 
+        // Shared pref
+        sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE)
 
+        // Action Bar
         mToolBar = findViewById<View>(R.id.main_page_toolbar) as MaterialToolbar
         setSupportActionBar(mToolBar)
 
@@ -95,17 +105,41 @@ class MainActivity : AppCompatActivity() {
             mFloatingNavigationView.close()
             true
         }
+
         // navigationView nightmode switch control
         val menuItem = mFloatingNavigationView.menu.findItem(R.id.nightModeFab) // first insialize MenuItem
 
-        @SuppressLint("UseSwitchCompatOrMaterialCode") val switchButton =
-            menuItem.actionView.findViewById<View>(R.id.drawer_switch) as SwitchMaterial
-        switchButton.setOnCheckedChangeListener { compoundButton: CompoundButton?, b: Boolean ->
-            if (b) {
+        switchMaterial = menuItem.actionView.findViewById<View>(R.id.drawer_switch) as SwitchMaterial
+
+        checkNightModeActivated()
+
+        switchMaterial.setOnCheckedChangeListener { compoundButton: CompoundButton?, isChecked: Boolean ->
+            if (isChecked) {
                 Toast.makeText(this, "True", Toast.LENGTH_SHORT).show()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                saveNightModeState(true)
+                recreate()
             } else {
                 Toast.makeText(this, "False", Toast.LENGTH_SHORT).show()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                saveNightModeState(false)
+                recreate()
             }
+        }
+    }
+
+    private fun saveNightModeState(nightMode: Boolean) {
+        var editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putBoolean(KEY_ISNIGHTMODE, nightMode)
+        editor.apply()
+    }
+    private fun checkNightModeActivated() {
+        if (sharedPreferences.getBoolean(KEY_ISNIGHTMODE, false)) {
+            switchMaterial.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            switchMaterial.isChecked = false
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 
